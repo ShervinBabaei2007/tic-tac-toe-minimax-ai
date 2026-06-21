@@ -1,6 +1,6 @@
 import time
 
-from player import HumanPlayer, RandomComputerPlayer
+from player import GeniousComputerPlayer, RandomComputerPlayer
 
 
 class TicTacToe:
@@ -93,8 +93,8 @@ def play(game, x_player, o_player, print_game=True):
 
             # switches players
             letter = "O" if letter == "X" else "X"
-        time.sleep(1)
-
+        if print_game:
+            time.sleep(0.75)
 
     # ONLY runs when loop ends (tie)
     if print_game:
@@ -104,7 +104,19 @@ def play(game, x_player, o_player, print_game=True):
 
 
 if __name__ == "__main__":
-    x_player = HumanPlayer("X")
-    o_player = RandomComputerPlayer("O")
-    t = TicTacToe()
-    play(t, x_player, o_player, print_game=True)
+    X_wins = 0
+    O_wins = 0
+    ties = 0
+    for _ in range(100):
+        x_player = RandomComputerPlayer("X")
+        o_player = GeniousComputerPlayer("O")
+        t = TicTacToe()
+        res = play(t, x_player, o_player, print_game=True)
+        if res == "X":
+            X_wins += 1
+        elif res == "O":
+            O_wins += 1
+        else:
+            ties += 1
+
+        print(f"After 100 iterations, we see {X_wins} X wins, {O_wins} O wins, and {ties} ties")
