@@ -1,3 +1,5 @@
+import time
+
 from player import HumanPlayer, RandomComputerPlayer
 
 
@@ -91,6 +93,8 @@ def play(game, x_player, o_player, print_game=True):
 
             # switches players
             letter = "O" if letter == "X" else "X"
+        time.sleep(1)
+
 
     # ONLY runs when loop ends (tie)
     if print_game:
