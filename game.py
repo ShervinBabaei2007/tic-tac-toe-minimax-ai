@@ -84,6 +84,7 @@ def play(game, x_player, o_player, print_game=True):
                 print(letter + f" makes a move to square {square}")
                 game.print_board()
                 print("")  # just empty line
+                time.sleep(0.75)
 
             # win check
             if game.current_winner:
@@ -93,8 +94,6 @@ def play(game, x_player, o_player, print_game=True):
 
             # switches players
             letter = "O" if letter == "X" else "X"
-        if print_game:
-            time.sleep(0.75)
 
     # ONLY runs when loop ends (tie)
     if print_game:
@@ -107,11 +106,15 @@ if __name__ == "__main__":
     X_wins = 0
     O_wins = 0
     ties = 0
-    for _ in range(100):
-        x_player = RandomComputerPlayer("X")
-        o_player = GeniousComputerPlayer("O")
+
+    x_player = RandomComputerPlayer("X")
+    o_player = GeniousComputerPlayer("O")
+    x = 1200
+
+    for _ in range(x):
         t = TicTacToe()
-        res = play(t, x_player, o_player, print_game=True)
+        res = play(t, x_player, o_player, print_game=False) # Change to True for visuals (slower results)
+
         if res == "X":
             X_wins += 1
         elif res == "O":
@@ -119,4 +122,6 @@ if __name__ == "__main__":
         else:
             ties += 1
 
-        print(f"After 100 iterations, we see {X_wins} X wins, {O_wins} O wins, and {ties} ties")
+    print(
+        f"After {x} iterations, we see {X_wins} X wins, {O_wins} O wins, and {ties} ties"
+    )
