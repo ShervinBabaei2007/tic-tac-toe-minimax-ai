@@ -195,7 +195,7 @@ class Player(ABC):
 
 ## Acknowledgments
 
-Built independently as a Python learning project to understand recursive algorithms, game AI, and object-oriented design.
+Built along side tutorials and independently as a Python learning project to understand recursive algorithms, game AI, and object-oriented design.
 
 ---
 
