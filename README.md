@@ -196,7 +196,3 @@ class Player(ABC):
 ## Acknowledgments
 
 Built along side tutorials and independently as a Python learning project to understand recursive algorithms, game AI, and object-oriented design.
-
----
-
-*Built by Shervin Babaei · [GitHub](https://github.com/yourusername) · [LinkedIn](https://linkedin.com/in/yourusername)*
